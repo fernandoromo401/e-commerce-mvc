@@ -1,0 +1,25 @@
+<?php include('app/components/subnav.html'); ?>
+<div class="row">
+
+    <?php foreach ($all_products_by_category as $product) { ?>
+    
+        <div class="col-lg-4">
+            <div class="card text-center mb-4" style="width: 18rem;">
+                <img src="./app/assets/img/productos/<?php echo $product["imagen"];?>" class="card-img-top img-prod" alt="...">
+                <div class="precio">
+                    <span>
+                        $<?php echo $product["precio"];?>
+                    </span>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $product["titulo"];?></h5>
+                    <p class="card-text"><?php echo $product["categoria"];?></p>
+                    <a href="?route=item&prod=<?php echo $product["id"];?>" class="btn btn-primary btn-sm">Ver Producto</a>
+                    <a href="?route=car2&prod=<?php echo $product["id"];?>" class="btn btn-light btn-sm">+<img class="btn-car" src="app/assets/img/carrito_compras.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+    <?php } ?>
+
+</div>

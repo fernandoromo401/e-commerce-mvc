@@ -1,0 +1,30 @@
+<?php
+error_reporting(0);
+session_start();
+?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="./?route=getAll">Catálogo</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+            <a href="./?route=car" onclick="location.refresh()">
+                <img class="car-buy" src="./app/assets/img/carrito_compras.png" alt="">
+            </a>
+            
+        </span>
+        <?php 
+            if ($_SESSION['contador']) {
+                echo '<span class="badge badge-pill badge-danger">'. count($_SESSION['contador']) .'</span>';
+            }
+        ?>
+    </div>
+</nav>
+<script></script>

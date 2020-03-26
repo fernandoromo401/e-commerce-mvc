@@ -1,0 +1,52 @@
+<div class="container">
+    <h2 class="text-center mb-5">¡Compra realizada con exito!</h2>
+    <div class="row">
+        <div class="col-xl-7">
+            <div class="card border-info">
+                <h3 class="card-header">Comprobante de Pago</h3>
+                <div class="card-body mt-3">
+                    <h5 class="card-title">Datos Comprador</h5>
+                    <h6 style="color: black !important;" class="card-subtitle text-muted">Nombre: <?php echo $client['name']; ?></h6>
+                    <hr>
+                </div>
+                
+                <div class="card-body">
+                    <p class="card-text">Documento: <?php echo $client['dni']; ?></p>
+                    <p class="card-text">Teléfono: <?php echo $client['tel']; ?></p>
+                    <p class="card-text">Correo: <?php echo $client['mail']; ?></p>
+                    <p class="card-text">Dirección: <?php echo $client['home']; ?></p>
+                    <p class="card-text">Localidad: <?php echo $client['loc']; ?></p>
+                    <p class="card-text">¿Envío?: <?php echo $send = ( $client['send'] != 0) ? $send = 'SI' : $send = 'NO' ;?></p>
+                </div>
+                
+                
+            </div>
+        </div>
+        <div class="col-xl-5">
+            <div class="card border-info">
+                <h3 class="card-header">Productos Comprados</h3>
+                
+                <ul class="list-group list-group-flush">
+                    <?php 
+                    for ($i=0; $i < count($_SESSION['payment']['products']); $i++) { 
+                        ?><li class="list-group-item">
+                            <strong>cod_prod(<?php echo $_SESSION['payment']['products'][$i]['id'];?>)</strong>
+                            <?php echo $_SESSION['payment']['products'][$i]['titulo'];?>
+                            <span style="float: right;">$<?php echo $_SESSION['payment']['products'][$i]['precio'];?></span>  
+                        </li> <?php
+                    }
+                    ?>
+                    <li class="list-group-item">
+                        <p class="mt-2">Envio: $<?php echo $send = ( $client['send'] != 0) ? $client['send'] : $client['send'] ;?></p>
+                        <p>Productos: $<?php echo $_SESSION['payment']['pay'];?></p>
+                        <p>Total: $<?php echo $all = $send +  $_SESSION['payment']['pay'];?></p>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a class="btn btn-info" href="">Descargar Comprobante</a>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<?php //var_dump ($purchase); ?>
+<div class="row">
+  <div class="col-xl-8">
+    <form action="./?route=pay" method="POST">
+      <div class="row">
+        <div class="col">
+          <input required="" name="name" type="text" class="form-control" placeholder="Nombre Completo">
+        </div>
+        <div class="col">
+          <input required="" name="dni" type="text" class="form-control" placeholder="Documento">
+        </div>
+      </div>
+      <div class="form-group mt-4">
+        <input required="" name="mail" type="text" class="form-control" placeholder="Correo Electrónico">
+      </div>
+      <div class="row">
+        <div class="col">
+          <input required="" name="cel" type="number" class="form-control" placeholder="Celular">
+        </div>
+        <div class="col">
+          <select name="loc" required="" class="form-control">
+            <option selected>Localildad</option>
+            <option>Capital</option>
+            <option>Godoy Cruz</option>
+            <option>Lujan</option>
+            <option>Maipu</option>
+            <option>Las Heras</option>
+            <option>Rivadavia</option>
+            <option>Junin</option>
+            <option>San Martin</option>
+            <option>San Rafael</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group mt-4">
+        <input required="" name="home" type="text" class="form-control" placeholder="Domicilio">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" name="send" type="checkbox" value="340" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          ¿Envío a Domicilio? +$340 pesos
+        </label>
+      </div>
+      <div class="text-center mt-5">
+        <button class="btn btn-success" type="submit">Cargar orden de Compra</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-xl-4">
+
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light">
+        Productos
+        <span class="badge badge-light badge-pill">$<?php echo $purchase['pay']; ?></span>
+      </li>
+      <div class="list-heigth">
+        <?php foreach ($purchase['products'] as $product) { ?>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <?php echo $product['titulo']; ?>
+          <span class="badge badge-primary badge-pill">$<?php echo $product['precio']; ?></span>
+        </li>
+        <?php } ?>
+      </div>
+    </ul>
+    <div class="text-center">
+      <img class="mp-w mb-4" src="./app/assets/img/seguridad.png" alt="">
+      <a class="text-center" href="https://www.mercadopago.com.ar/ayuda/protecci%C3%B3n-a-compradores_283">Protección de Compradores 🡲</a>
+    </div>
+  </div>
+</div>
+<?php
+// SDK de Mercado Pago
+?>
+

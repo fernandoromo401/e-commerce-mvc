@@ -1,0 +1,54 @@
+
+.img-prod{
+    height: 200px;
+}
+.dropdown p{
+    cursor: pointer !important;
+}
+.car-buy{
+    width: 30px;
+}
+.descripcion{
+    height: 150px;
+}
+.tamaño{
+    display: inline-block;
+}
+.img-prod-desc{
+    width: 480px;
+    height: 340px;
+}
+.sticky-top-2 {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 65px !important;
+    z-index: 1000 !important;
+    background-color: white;
+}
+.img-car{
+    width: 80px;
+}
+.precio{
+    color: #FFF;
+    background-color: #070707;
+    width: 30%;
+    position: relative;
+    bottom: 21px;
+}
+.btn-car{
+    width: 14px;
+}
+.btn-refresh{
+    width: 10px;
+}
+.list-heigth{
+    max-height: 240px;
+    overflow-y: scroll;
+}
+.mp-w{
+    width: 100%;
+}
+.card-body{
+    padding: 1em;
+    padding-top: 0;
+}

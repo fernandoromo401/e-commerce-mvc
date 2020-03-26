@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-xl-9">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="./?route=getAll">🡸 Catálogo</a></li>
+      <li class="breadcrumb-item active">Carrito de Compras</li>
+    </ol>
+    <div class="">
+      <table class="table">
+        <thead class="table-dark">
+          <tr class="text-center">
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <?php 
+          $total = [];
+          foreach ($products as $product) { 
+          array_push($total, $product['precio']); 
+          ?>
+          <tr class="table-secundary text-center">
+            <th><img class="img-car" src="./app/assets/img/productos/<?php echo $product['imagen']; ?>" alt=""></th>
+            <td><?php echo $product['titulo']; ?></td>
+            <td>$<?php echo $product['precio']; ?></td>
+          </tr>
+          <?php } ?>
+
+        </tbody>
+      </table>
+      <div class="text-center">
+        <button class="btn btn-ligth btn-sm" onclick="setTimeout(window.location='./?route=car',5000)"><img
+            class="btn-refresh" src="app/assets/img/refresh.png" alt=""><span class="font"> REFRESCAR</span></button>
+        <a href="./?route=deleteCar" onclick="location.refresh()" class="btn btn-danger btn-sm">Vaciar Carrito</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3">
+      <br>
+      
+      <h3>Total: <strong style="font-weight: bold;">$<?php echo $total_sum = array_sum ( $total ); ?></strong></h3>
+      <p>Pesos Argentinos</p>
+      <?php
+        if ($total_sum > 0) {
+          $_SESSION['payment'] = [
+            'pay'       => $total_sum,
+            'products'  => $products
+          ];
+          ?><a href="./?route=purchase" class="btn btn-success btn-sm">Comprar Pedido</a><?php
+        }
+        else{
+          session_unset();
+          session_destroy();
+        }
+      ?>
+      <hr>
+      <a href="./?route=getAll" class="btn btn-dark btn-sm">Continuar Comprando</a>
+  </div>
+</div>
+

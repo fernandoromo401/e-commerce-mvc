@@ -1,0 +1,29 @@
+<div class="container mb-5 sticky-top-2">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" href="?route=getAll">Todos Los Productos</a>
+        </li>
+        <li class="nav-item">
+            <div class="dropdown ">
+                <p style="cursor: pointer;" class="nav-link link-subnav" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Categorias 🠟
+                </p>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="?route=getCategory&cat=lentes">Lentes</a>
+                    <a class="dropdown-item" href="?route=getCategory&cat=cristales">Cristales</a>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+    <form action="./?route=getName" method="POST" class="nav justify-content-center mt-3 ">
+        <div style="width:50%;" class="input-group mb-3">
+            <input name="name" type="search" class="form-control" placeholder="Nombre del Producto"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append ">
+                <button type="submit" class="input-group-text" id="basic-addon2">Buscar</button>
+            </div>
+        </div>
+    </form>
+</div>
